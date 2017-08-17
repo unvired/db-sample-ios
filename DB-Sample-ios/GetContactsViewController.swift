@@ -111,6 +111,9 @@ class GetContactsViewController: UIViewController {
         
         if(contactID.characters.count > 0 || contactName.characters.count > 0) {
             self.view.endEditing(true)
+            self.downloadedContactHeaders = []
+            self.tableViewSections = []
+            self.tableViewDataSource = [:]
             showBusyIndicator()
             networkManger.sendDataToServer(MESSAGE_REQUEST_TYPE.PULL, PAFunctionName: AppConstants.PA_GET_CONTACT, header: self.contactHeader)
         }

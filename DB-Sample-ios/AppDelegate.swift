@@ -65,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , LoginActivityListener {
         let loginParameters:LoginParameters = LoginParameters.shared()
         loginParameters.applicationWindow = self.window
         loginParameters.url =  "http://192.168.98.160:8080/UMP"
-        loginParameters.company = "UNVIRED"
         loginParameters.applicationTitle = NSLocalizedString("DB-Sample-ios", comment: "")
         loginParameters.applicationLogoForiPad = nil
         loginParameters.applicationLogoForiPhone = nil
