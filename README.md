@@ -21,6 +21,6 @@ Install Unvired SDK
 
 In the Terminal app, do a cd into the project folder and execute the following command.
 
-> $ pod install —repo-update
+> $ pod install --repo-update
 
 This will set up Unvired DB Sample Project with all the required dependencies.
