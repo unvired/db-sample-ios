@@ -104,16 +104,16 @@ class ViewController: UIViewController {
     
     @IBAction func menuButtonAction(_ sender: AnyObject) {
         let alertController: UIAlertController = UIAlertController(title: nil, message: nil,
-                                                                   preferredStyle: UIAlertControllerStyle.actionSheet)
+                                                                   preferredStyle: UIAlertController.Style.actionSheet)
         
-        let getPersonAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Get Contacts", comment: ""), style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in self.showGetContactsScreen()
+        let getPersonAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Get Contacts", comment: ""), style: UIAlertAction.Style.default) { (action: UIAlertAction) -> Void in self.showGetContactsScreen()
         }
         
-        let settingsAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertActionStyle.default) { (action: UIAlertAction) -> Void in self.showFrameworkSettingsViewController()
+        let settingsAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("Settings", comment: ""), style: UIAlertAction.Style.default) { (action: UIAlertAction) -> Void in self.showFrameworkSettingsViewController()
         }
         
         
-        let cancelAction: UIAlertAction = UIAlertAction(title:  NSLocalizedString("Cancel",  comment: ""), style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction: UIAlertAction = UIAlertAction(title:  NSLocalizedString("Cancel",  comment: ""), style: UIAlertAction.Style.cancel, handler: nil)
         
         alertController.addAction(getPersonAction)
         alertController.addAction(settingsAction)
@@ -129,7 +129,7 @@ class ViewController: UIViewController {
     }
     
     func showFrameworkSettingsViewController() {
-        let settingsViewController: FrameworkSettingsViewController = FrameworkSettingsViewController(style: UITableViewStyle.grouped)
+        let settingsViewController: FrameworkSettingsViewController = FrameworkSettingsViewController(style: UITableView.Style.grouped)
         settingsViewController.delegate = self
         let navController: UINavigationController = UINavigationController(rootViewController: settingsViewController)
         navController.modalPresentationStyle = UIModalPresentationStyle.formSheet

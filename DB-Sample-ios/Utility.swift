@@ -53,8 +53,8 @@ struct Utility {
     
     static func displayAlertWithOKButton(_ title: String, message: String, viewController: UIViewController) {
         runInMainThread { () -> Void in
-            let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-            let alertAction: UIAlertAction = UIAlertAction(title:  NSLocalizedString("OK",  comment: ""), style: UIAlertActionStyle.default, handler: nil)
+            let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            let alertAction: UIAlertAction = UIAlertAction(title:  NSLocalizedString("OK",  comment: ""), style: UIAlertAction.Style.default, handler: nil)
             alertController.addAction(alertAction)
             viewController.present(alertController, animated: true, completion: nil)
         }

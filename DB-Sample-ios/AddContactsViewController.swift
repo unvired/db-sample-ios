@@ -42,7 +42,7 @@ class AddContactsViewController: UIViewController {
     func showBusyIndicator() {
         alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: .alert)
         
-        let spinnerIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let spinnerIndicator = UIActivityIndicatorView(style: .whiteLarge)
         
         spinnerIndicator.center = CGPoint(x: 135.0, y: 65.5)
         spinnerIndicator.color = UIColor.black

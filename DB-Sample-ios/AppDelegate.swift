@@ -38,23 +38,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate , LoginActivityListener {
         let alertController: UIAlertController = UIAlertController (
             title: NSLocalizedString("Error", comment: ""),
             message: error.localizedDescription,
-            preferredStyle: UIAlertControllerStyle.alert)
+            preferredStyle: UIAlertController.Style.alert)
         let alertAction: UIAlertAction = UIAlertAction(
             title: "OK",
-            style: UIAlertActionStyle.default, handler: nil)
+            style: UIAlertAction.Style.default, handler: nil)
         alertController.addAction(alertAction)
         self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     
     func authenticationAndActivationFailedWithError(_ error: Error!) {
-        let alertController: UIAlertController = UIAlertController (title: "Error", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        let alertController: UIAlertController = UIAlertController (title: "Error", message: error.localizedDescription, preferredStyle: UIAlertController.Style.alert)
+        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
         alertController.addAction(alertAction)
         self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , LoginActivityListener {
         //  Set all the Required parameters in LoginParameters.
         let loginParameters:LoginParameters = LoginParameters.shared()
         loginParameters.applicationWindow = self.window
-        loginParameters.url =  "http://192.168.98.160:8080/UMP"
+        loginParameters.url =  "https://sandbox.unvired.io/UMP/"
         loginParameters.applicationTitle = NSLocalizedString("DB-Sample-ios", comment: "")
         loginParameters.applicationLogoForiPad = nil
         loginParameters.applicationLogoForiPhone = nil
