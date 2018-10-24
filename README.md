@@ -1,26 +1,29 @@
 # db-sample-ios
-Database sample app on iOS
+DB sample on iOS. This application interfaces with a single Database server. This app demonstrates how you can add / modify / delete records on a backend database. 
 
-**Install CocoaPods (if not already installed)**
-------------------------------------------------
-Install CocoaPods by executing the following command in the Terminal.
+**Prerequisites**
+-----------------
+1. Mac running version 10.14 (macOS Mojave) or higher.
+2. Xcode 10.0:
+You can get the latest Xcode from https://developer.apple.com/xcode
+3. Cocoapods:
+This project is dependent on UnviredSDK library which is distributed as a cocoapod. If you don't have a cocoapod setup, you can set it up from https://cocoapods.org
 
-> $ sudo gem install cocoapods
+**App setup**
+----------------
+After you clone this GitHub project, navigate to the project folder and install UnviredSDK as a pod.
+```
+$ cd db-sample-ios
+$ pod install --repo-update
+```
+This should set up Unvired Rest Sample Project with all the required dependencies.
 
-Note: After you install cocoapods, make sure you set it up by executing the following command in terminal
+**Using the app**
+----------------
+Compile & run the app. When the app starts you can provide the following sample credentials to login:
+```
+Company: unvired
+Username: demo
+Password: Unvired123*
+```
 
-> $ pod setup
-
-Clone Unvired DB Sample Project
-
-Clone the GitHub Project by executing the following command in the Terminal.
-
-> $ git clone https://github.com/unvired/db-sample-ios.git
-
-Install Unvired SDK
-
-In the Terminal app, do a cd into the project folder and execute the following command.
-
-> $ pod install --repo-update
-
-This will set up Unvired DB Sample Project with all the required dependencies.
