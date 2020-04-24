@@ -4,7 +4,7 @@ DB sample on iOS. This application interfaces with a single Database server. Thi
 **Prerequisites**
 -----------------
 1. Mac running version 10.14 (macOS Mojave) or higher.
-2. Xcode 10.0:
+2. Xcode 11.0:
 You can get the latest Xcode from https://developer.apple.com/xcode
 3. Cocoapods:
 This project is dependent on UnviredSDK library which is distributed as a cocoapod. If you don't have a cocoapod setup, you can set it up from https://cocoapods.org
@@ -14,7 +14,8 @@ This project is dependent on UnviredSDK library which is distributed as a cocoap
 After you clone this GitHub project, navigate to the project folder and install UnviredSDK as a pod.
 ```
 $ cd db-sample-ios
-$ pod install --repo-update
+$ pod repo update
+$ pod install
 ```
 This should set up Unvired Rest Sample Project with all the required dependencies.
 
