@@ -20,7 +20,8 @@ struct Utility {
     }
     
     static func runInBackground(_ block:@escaping ()->Void) {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: block)
+        DispatchQueue.global(qos: .background).async(execute: block)
+//        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: block)
     }
     
     static func getCompleteInfoMessageStringFromInfoMessages(_ infoMessages: [AnyObject]) -> (String,Bool) {
@@ -60,7 +61,7 @@ struct Utility {
         }
     }
     
-    static func insertOrReplaceHeadersInDatabase(_ dataStructures: [IDataStructure]) -> Bool {
+    static func insertOrReplaceHeadersInDatabase(_ dataStructures: [IDataStructure], view: UIViewController) {
         let dataManager: IDataManager = UnviredDBampleUtils.getApplicationDataManager()!
         
         for dataStructure:IDataStructure in dataStructures {
@@ -68,27 +69,24 @@ struct Utility {
                 try dataManager.replace(dataStructure)
             }
             catch let error as NSError {
-                Utility.displayErrorInformation(error)
+                Utility.displayErrorInformation(error, vc: view)
             }
         }
-        return true
     }
     
-    static func displayErrorInformation(_ error: NSError?) {
+    static func displayErrorInformation(_ error: NSError?, vc: UIViewController) {
         if error != nil {
             let desc: String = error!.localizedDescription
-            displayStringInAlertView(NSLocalizedString("Error",  comment: ""), desc: desc)
+            displayStringInAlertView(NSLocalizedString("Error",  comment: ""), desc: desc, viewController: vc)
         }
     }
     
-    static func displayStringInAlertView(_ title: String, desc: String) {
+    static func displayStringInAlertView(_ title: String, desc: String, viewController: UIViewController) {
         runInMainThread { () -> Void in
-            
-            let errorAlertView: UIAlertView = UIAlertView(title:  title,
-                                                          message: desc,
-                                                          delegate: nil,
-                                                          cancelButtonTitle:NSLocalizedString("OK",  comment: ""))
-            errorAlertView.show()
+            let alertController: UIAlertController = UIAlertController(title: title, message: desc, preferredStyle: UIAlertController.Style.alert)
+            let alertAction: UIAlertAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertAction.Style.cancel, handler: nil)
+            alertController.addAction(alertAction)
+            viewController.present(alertController, animated: true, completion: nil)
         }
     }
     

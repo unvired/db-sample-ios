@@ -42,7 +42,7 @@ class AddContactsViewController: UIViewController {
     func showBusyIndicator() {
         alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: .alert)
         
-        let spinnerIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        let spinnerIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         
         spinnerIndicator.center = CGPoint(x: 135.0, y: 65.5)
         spinnerIndicator.color = UIColor.black
@@ -59,18 +59,18 @@ class AddContactsViewController: UIViewController {
     @IBAction func createContact(_ sender: Any) {
         self.view.endEditing(true)
         
-        if let name = contactHeader.FIELD_ContactName,(name.characters.count == 0 || name == "nil" || name == "") {
-            Utility.displayStringInAlertView("", desc: "Enter name.")
+        if let name = contactHeader.FIELD_ContactName,(name.count == 0 || name == "nil" || name == "") {
+            Utility.displayStringInAlertView("", desc: "Enter name.", viewController: self)
             return
         }
         
-        if let phone = contactHeader.FIELD_Phone,(phone.characters.count == 0 || phone == "nil" || phone == "") {
-            Utility.displayStringInAlertView("", desc: "Enter Phone number.")
+        if let phone = contactHeader.FIELD_Phone,(phone.count == 0 || phone == "nil" || phone == "") {
+            Utility.displayStringInAlertView("", desc: "Enter Phone number.", viewController: self)
             return
         }
         
-        if let email = contactHeader.FIELD_Email,(email.characters.count == 0 || email == "nil" || email == "") {
-            Utility.displayStringInAlertView("", desc: "Enter Email.")
+        if let email = contactHeader.FIELD_Email,(email.count == 0 || email == "nil" || email == "") {
+            Utility.displayStringInAlertView("", desc: "Enter Email.", viewController: self)
             return
         }
         
@@ -103,7 +103,7 @@ extension AddContactsViewController : UITextFieldDelegate {
         txtAfterUpdate = (txtAfterUpdate as NSString).replacingCharacters(in: range, with: string)
         txtAfterUpdate = txtAfterUpdate.trimmingCharacters(in: CharacterSet.whitespaces)
         
-        if(txtAfterUpdate.characters.count > 0 && txtAfterUpdate != " " || txtAfterUpdate != "") {
+        if(txtAfterUpdate.count > 0 && txtAfterUpdate != " " || txtAfterUpdate != "") {
             if textField == nameTextField {
                 contactHeader.FIELD_ContactName = txtAfterUpdate
                 print("FIELD_ContactName: \(String(describing: contactHeader.FIELD_ContactName))")
@@ -128,9 +128,9 @@ extension AddContactsViewController: NetworkConnectionDelegate {
     
     func didGetResponseForPA(_ paFunctionName: String, infoMessage: String, responseHaeders: Dictionary<NSObject, AnyObject>) {
         hideBusyIndicator()
-        Utility.displayStringInAlertView("", desc: "Contact Added.")
+        Utility.displayStringInAlertView("", desc: "Contact Added.", viewController: self)
         let contactHeaders = getContactHeaders(responseHaeders)
-        Utility.insertOrReplaceHeadersInDatabase(contactHeaders)
+        Utility.insertOrReplaceHeadersInDatabase(contactHeaders, view: self)
         delegate?.didDownloadContacts()
         self.navigationController?.popViewController(animated: true)
     }

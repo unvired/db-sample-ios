@@ -80,7 +80,7 @@ class GetContactsViewController: UIViewController {
             let alertController = UIAlertController(title: nil, message:
                 NSLocalizedString("Do you want to save results?", comment: "") , preferredStyle: UIAlertController.Style.alert)
             alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) { (action) -> Void in
-                Utility.insertOrReplaceHeadersInDatabase(self.downloadedContactHeaders)
+                Utility.insertOrReplaceHeadersInDatabase(self.downloadedContactHeaders, view: self)
                 self.delegate?.didDownloadContacts()
                 self.navigationController?.popViewController(animated: true)
             })
@@ -109,7 +109,7 @@ class GetContactsViewController: UIViewController {
             contactName = name
         }
         
-        if(contactID.characters.count > 0 || contactName.characters.count > 0) {
+        if(contactID.count > 0 || contactName.count > 0) {
             self.view.endEditing(true)
             self.downloadedContactHeaders = []
             self.tableViewSections = []
@@ -125,7 +125,7 @@ class GetContactsViewController: UIViewController {
     func showBusyIndicator() {
         alertController = UIAlertController(title: nil, message: "Please wait\n\n", preferredStyle: .alert)
         
-        let spinnerIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        let spinnerIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         
         spinnerIndicator.center = CGPoint(x: 135.0, y: 65.5)
         spinnerIndicator.color = UIColor.black
@@ -140,7 +140,7 @@ class GetContactsViewController: UIViewController {
     }
     
     func sortContactHeader(contactHeaders: [CONTACT_HEADER]) {
-        let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map({ String($0) })
+        let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".map({ String($0) })
         
         for letter in alphabet {
             let matches = contactHeaders.filter({ ($0.FIELD_ContactName?.uppercased().hasPrefix(letter))! })

@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , LoginActivityListener {
         
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+//        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         
         return true
     }

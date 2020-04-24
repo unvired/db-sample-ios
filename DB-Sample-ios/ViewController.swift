@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     }
     
     func sortContactHeader(contactHeaders: [CONTACT_HEADER]) {
-        let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".characters.map({ String($0) })
+        let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".map({ String($0) })
         var sectionArray : [String] = []
         var dataSorce: [String: [CONTACT_HEADER]] = [:]
         
@@ -132,7 +132,7 @@ class ViewController: UIViewController {
         let settingsViewController: FrameworkSettingsViewController = FrameworkSettingsViewController(style: UITableView.Style.grouped)
         settingsViewController.delegate = self
         let navController: UINavigationController = UINavigationController(rootViewController: settingsViewController)
-        navController.modalPresentationStyle = UIModalPresentationStyle.formSheet
+        navController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         navController.navigationBar.barTintColor = UIColor.blue
         navController.navigationBar.barStyle = UIBarStyle.black
         navController.navigationBar.tintColor = UIColor.white
@@ -192,7 +192,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             sectionHeaderLabel.text =  tableViewSections[section]
         }
         
-        sectionHeaderView.backgroundColor = UIColor.groupTableViewBackground
+        sectionHeaderView.backgroundColor = UIColor.systemGroupedBackground
         sectionHeaderView.addSubview(sectionHeaderLabel)
         return sectionHeaderView
     }
@@ -277,7 +277,7 @@ extension ViewController : UISearchBarDelegate, UISearchDisplayDelegate  {
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         
-        if searchBar.text != nil && searchBar.text!.characters.count > 0 {
+        if searchBar.text != nil && searchBar.text!.count > 0 {
             searchBar.showsCancelButton = false
         }
         else {
@@ -289,7 +289,7 @@ extension ViewController : UISearchBarDelegate, UISearchDisplayDelegate  {
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if((searchBar.text?.characters.count)! > 0) {
+        if((searchBar.text?.count)! > 0) {
             isFiltered = true
         }
         else {
@@ -299,7 +299,7 @@ extension ViewController : UISearchBarDelegate, UISearchDisplayDelegate  {
         searchResultsDataSource.removeAll()
         var searchText = ""
         
-        if (self.searchBar.text?.characters.count)! > 0 {
+        if (self.searchBar.text?.count)! > 0 {
             searchText = self.searchBar.text!.lowercased()
         }
         else {
