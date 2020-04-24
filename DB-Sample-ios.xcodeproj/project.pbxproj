@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24178FC72452C5EE00C857E1 /* metadata.xml in Resources */ = {isa = PBXBuildFile; fileRef = 24178FC62452C5EE00C857E1 /* metadata.xml */; };
 		4A0B3A8F5971DD45CAA1A349 /* Pods_DB_Sample_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D115FC57E43866217406BB /* Pods_DB_Sample_ios.framework */; };
 		FA1CC36F1F3D75F000413EB8 /* GetContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CC36E1F3D75F000413EB8 /* GetContactsViewController.swift */; };
 		FA1CC3711F3D785900413EB8 /* AddContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CC3701F3D785900413EB8 /* AddContactsViewController.swift */; };
@@ -22,11 +23,11 @@
 		FA32E8211F3C604F0081642F /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E8201F3C604F0081642F /* Utility.swift */; };
 		FA32E8301F3C83A30081642F /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E82C1F3C83A30081642F /* AppConstant.swift */; };
 		FA32E8311F3C83A30081642F /* CONTACT_HEADER.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E82D1F3C83A30081642F /* CONTACT_HEADER.swift */; };
-		FA32E8321F3C83A30081642F /* metadata.xml in Resources */ = {isa = PBXBuildFile; fileRef = FA32E82E1F3C83A30081642F /* metadata.xml */; };
 		FA32E8331F3C83A30081642F /* UnviredDBSampleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA32E82F1F3C83A30081642F /* UnviredDBSampleUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24178FC62452C5EE00C857E1 /* metadata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = metadata.xml; sourceTree = "<group>"; };
 		8C42E6EF7457951670156AF5 /* Pods-DB-Sample-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DB-Sample-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-DB-Sample-ios/Pods-DB-Sample-ios.release.xcconfig"; sourceTree = "<group>"; };
 		A0FBF9DE6F48FFF5C7B5BC87 /* Pods-DB-Sample-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DB-Sample-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DB-Sample-ios/Pods-DB-Sample-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		E2D115FC57E43866217406BB /* Pods_DB_Sample_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DB_Sample_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,7 +48,6 @@
 		FA32E8201F3C604F0081642F /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		FA32E82C1F3C83A30081642F /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		FA32E82D1F3C83A30081642F /* CONTACT_HEADER.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CONTACT_HEADER.swift; sourceTree = "<group>"; };
-		FA32E82E1F3C83A30081642F /* metadata.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = metadata.xml; sourceTree = "<group>"; };
 		FA32E82F1F3C83A30081642F /* UnviredDBSampleUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnviredDBSampleUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,9 +138,9 @@
 		FA32E82B1F3C83A30081642F /* BE's */ = {
 			isa = PBXGroup;
 			children = (
+				24178FC62452C5EE00C857E1 /* metadata.xml */,
 				FA32E82C1F3C83A30081642F /* AppConstant.swift */,
 				FA32E82D1F3C83A30081642F /* CONTACT_HEADER.swift */,
-				FA32E82E1F3C83A30081642F /* metadata.xml */,
 				FA32E82F1F3C83A30081642F /* UnviredDBSampleUtils.swift */,
 				FA1CC36A1F3D6FD200413EB8 /* DB-Sample-ios-Bridging-Header.h */,
 			);
@@ -192,6 +192,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -210,9 +211,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA32E8321F3C83A30081642F /* metadata.xml in Resources */,
 				FA1CC37A1F3DABD900413EB8 /* ContactDetailTableViewCell.xib in Resources */,
 				FA32E8171F3C59BC0081642F /* LaunchScreen.storyboard in Resources */,
+				24178FC72452C5EE00C857E1 /* metadata.xml in Resources */,
 				FA32E8141F3C59BC0081642F /* Assets.xcassets in Resources */,
 				FA32E8121F3C59BC0081642F /* Main.storyboard in Resources */,
 				FA32E81F1F3C5A6D0081642F /* applicationMetadata.xml in Resources */,
@@ -246,7 +247,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DB-Sample-ios/Pods-DB-Sample-ios-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DB-Sample-ios/Pods-DB-Sample-ios-resources.sh",
 				"${PODS_ROOT}/UnviredSDK/UnviredSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -255,7 +256,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DB-Sample-ios/Pods-DB-Sample-ios-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DB-Sample-ios/Pods-DB-Sample-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
